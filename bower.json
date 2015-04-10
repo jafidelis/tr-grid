@@ -1,10 +1,9 @@
 {
-  "name": "angular-ui-grid",
+  "name": "angular-tr-grid",
   "version": "3.0.0-rc.20",
-  "homepage": "http://ui-grid.info",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular-ui/ui-grid.info.git"
+    "url": "https://github.com/jafidelis/tr-grid.info.git"
   },
   "authors": [
     "__Contributors__"
