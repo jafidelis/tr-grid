@@ -596,8 +596,8 @@
    </file>
    </example>
    */
-  module.directive('uiGridCellnav', ['gridUtil', 'uiGridCellNavService', 'uiGridCellNavConstants', 'uiGridConstants', '$timeout',
-    function (gridUtil, uiGridCellNavService, uiGridCellNavConstants, uiGridConstants, $timeout) {
+  module.directive('uiGridCellnav', ['gridUtil', 'uiGridCellNavService', 'uiGridCellNavConstants', 'uiGridConstants', '$timeout', 'uiGridSelectionService',
+    function (gridUtil, uiGridCellNavService, uiGridCellNavConstants, uiGridConstants, $timeout, uiGridSelectionService) {
       return {
         replace: true,
         priority: -150,
@@ -659,6 +659,21 @@
               };
 
               uiGridCtrl.cellNav.handleKeyDown = function (evt) {
+
+              // Get the last-focused row+col combo
+              var lastRowCol = uiGridCtrl.grid.api.cellNav.getFocusedCell();
+
+               //INÍCIO DO BLOCO DE SELEÇÃO DE LINHA PELO TECLADO
+               if(evt.keyCode == uiGridConstants.keymap.SPACE && !lastRowCol.col.colDef.enableCellEdit){
+                 uiGridSelectionService.toggleRowSelection(grid, lastRowCol.row, evt, self.options.multiSelect, self.options.noUnselect);
+                 if($scope.$$phase){
+                   $scope.$apply();
+                 }
+
+                 evt.preventDefault();
+               }
+               //FIM DO BLOCO DE SELEÇÃO DE LINHA PELO TECLADO
+
                 var direction = uiGridCellNavService.getDirection(evt);
                 if (direction === null) {
                   return null;
@@ -669,8 +684,6 @@
                   containerId = evt.uiGridTargetRenderContainerId;
                 }
 
-                // Get the last-focused row+col combo
-                var lastRowCol = uiGridCtrl.grid.api.cellNav.getFocusedCell();
                 if (lastRowCol) {
                   // Figure out which new row+combo we're navigating to
                   var rowCol = uiGridCtrl.grid.renderContainers[containerId].cellNav.getNextRowCol(direction, lastRowCol.row, lastRowCol.col);
