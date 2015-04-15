@@ -12,19 +12,19 @@ angular.module('ui.grid')
    * @param {number} index the current position of the column in the array
    * @param {Grid} grid reference to the grid
    */
-   
+
   /**
    * ******************************************************************************************
-   * PaulL1: Ugly hack here in documentation.  These properties are clearly properties of GridColumn, 
+   * PaulL1: Ugly hack here in documentation.  These properties are clearly properties of GridColumn,
    * and need to be noted as such for those extending and building ui-grid itself.
    * However, from an end-developer perspective, they interact with all these through columnDefs,
    * and they really need to be documented there.  I feel like they're relatively static, and
    * I can't find an elegant way for ngDoc to reference to both....so I've duplicated each
    * comment block.  Ugh.
-   * 
+   *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name name
    * @propertyOf ui.grid.class:GridColumn
@@ -33,7 +33,7 @@ angular.module('ui.grid')
    *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name name
    * @propertyOf ui.grid.class:GridOptions.columnDef
@@ -41,8 +41,8 @@ angular.module('ui.grid')
    * compatibility with 2.x name can be omitted if field is present
    *
    */
-    
-  /** 
+
+  /**
    * @ngdoc property
    * @name displayName
    * @propertyOf ui.grid.class:GridColumn
@@ -51,7 +51,7 @@ angular.module('ui.grid')
    *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name displayName
    * @propertyOf ui.grid.class:GridOptions.columnDef
@@ -59,37 +59,37 @@ angular.module('ui.grid')
    * provided then one is generated using the name.
    *
    */
-       
-  /** 
+
+  /**
    * @ngdoc property
    * @name field
    * @propertyOf ui.grid.class:GridColumn
-   * @description field must be provided if you wish to bind to a 
-   * property in the data source.  Should be an angular expression that evaluates against grid.options.data 
+   * @description field must be provided if you wish to bind to a
+   * property in the data source.  Should be an angular expression that evaluates against grid.options.data
    * array element.  Can be a complex expression: <code>employee.address.city</code>, or can be a function: <code>employee.getFullAddress()</code>.
    * See the angular docs on binding expressions.
    *
    */
-    
-  /** 
+
+  /**
    * @ngdoc property
    * @name field
    * @propertyOf ui.grid.class:GridOptions.columnDef
-   * @description field must be provided if you wish to bind to a 
-   * property in the data source.  Should be an angular expression that evaluates against grid.options.data 
+   * @description field must be provided if you wish to bind to a
+   * property in the data source.  Should be an angular expression that evaluates against grid.options.data
    * array element.  Can be a complex expression: <code>employee.address.city</code>, or can be a function: <code>employee.getFullAddress()</code>.    * See the angular docs on binding expressions.    *
    */
-    
-  /** 
+
+  /**
    * @ngdoc property
    * @name filter
    * @propertyOf ui.grid.class:GridColumn
-   * @description Filter on this column.  
+   * @description Filter on this column.
    * @example
    * <pre>{ term: 'text', condition: uiGridConstants.filter.STARTS_WITH, placeholder: 'type to filter...', flags: { caseSensitive: false }, type: uiGridConstants.filter.SELECT, [ { value: 1, label: 'male' }, { value: 2, label: 'female' } ] }</pre>
    *
    */
-    
+
   /**
    * @ngdoc method
    * @methodOf ui.grid.class:GridColumn
@@ -98,7 +98,7 @@ angular.module('ui.grid')
    * @param {ColumnDef} colDef the column def to associate with this column
    * @param {number} uid the unique and immutable uid we'd like to allocate to this column
    * @param {Grid} grid the grid we'd like to create this column in
-   */ 
+   */
   function GridColumn(colDef, uid, grid) {
     var self = this;
 
@@ -207,7 +207,7 @@ angular.module('ui.grid')
    * @param {ColumnDef} colDef the column def to look in for the property value
    * @param {string} propName the property name we'd like to set
    * @param {object} defaultValue the value to use if the colDef doesn't provide the setting
-   */ 
+   */
   GridColumn.prototype.setPropertyOrDefault = function (colDef, propName, defaultValue) {
     var self = this;
 
@@ -225,13 +225,13 @@ angular.module('ui.grid')
     }
   };
 
-  
-  
-  /** 
+
+
+  /**
    * @ngdoc property
    * @name width
    * @propertyOf ui.grid.class:GridOptions.columnDef
-   * @description sets the column width.  Can be either 
+   * @description sets the column width.  Can be either
    * a number or a percentage, or an * for auto.
    * @example
    * <pre>  $scope.gridOptions.columnDefs = [ { field: 'field1', width: 100},
@@ -240,7 +240,7 @@ angular.module('ui.grid')
    *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name minWidth
    * @propertyOf ui.grid.class:GridOptions.columnDef
@@ -250,7 +250,7 @@ angular.module('ui.grid')
    *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name maxWidth
    * @propertyOf ui.grid.class:GridOptions.columnDef
@@ -260,20 +260,20 @@ angular.module('ui.grid')
    *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name visible
    * @propertyOf ui.grid.class:GridOptions.columnDef
    * @description sets whether or not the column is visible
    * </br>Default is true
    * @example
-   * <pre>  $scope.gridOptions.columnDefs = [ 
+   * <pre>  $scope.gridOptions.columnDefs = [
    *     { field: 'field1', visible: true},
    *     { field: 'field2', visible: false }
    *   ]; </pre>
    *
    */
-   
+
   /**
    * @ngdoc property
    * @name sort
@@ -283,33 +283,33 @@ angular.module('ui.grid')
    * @example
    * <pre>  $scope.gridOptions.columnDefs = [ { field: 'field1', sort: { direction: uiGridConstants.ASC }}] </pre>
    */
-  
 
-  /** 
+
+  /**
    * @ngdoc property
    * @name sortingAlgorithm
    * @propertyOf ui.grid.class:GridColumn
-   * @description Algorithm to use for sorting this column. Takes 'a' and 'b' parameters 
+   * @description Algorithm to use for sorting this column. Takes 'a' and 'b' parameters
    * like any normal sorting function.
    *
    */
 
-  /** 
+  /**
    * @ngdoc property
    * @name sortingAlgorithm
    * @propertyOf ui.grid.class:GridOptions.columnDef
-   * @description Algorithm to use for sorting this column. Takes 'a' and 'b' parameters 
+   * @description Algorithm to use for sorting this column. Takes 'a' and 'b' parameters
    * like any normal sorting function.
    *
    */
-      
-  /** 
+
+  /**
    * @ngdoc array
    * @name filters
    * @propertyOf ui.grid.class:GridOptions.columnDef
    * @description Specify multiple filter fields.
    * @example
-   * <pre>$scope.gridOptions.columnDefs = [ 
+   * <pre>$scope.gridOptions.columnDefs = [
    *   {
    *     field: 'field1', filters: [
    *       {
@@ -328,10 +328,10 @@ angular.module('ui.grid')
    *   }
    * ]; </pre>
    *
-   * 
-   */ 
-   
-  /** 
+   *
+   */
+
+  /**
    * @ngdoc array
    * @name filters
    * @propertyOf ui.grid.class:GridColumn
@@ -353,16 +353,16 @@ angular.module('ui.grid')
    *   }
    * ] </pre>
    *
-   * 
-   */   
+   *
+   */
 
-  /** 
+  /**
    * @ngdoc array
    * @name menuItems
    * @propertyOf ui.grid.class:GridOptions.columnDef
-   * @description used to add menu items to a column.  Refer to the tutorial on this 
+   * @description used to add menu items to a column.  Refer to the tutorial on this
    * functionality.  A number of settings are supported:
-   * 
+   *
    * - title: controls the title that is displayed in the menu
    * - icon: the icon shown alongside that title
    * - action: the method to call when the menu is clicked
@@ -371,7 +371,7 @@ angular.module('ui.grid')
    * - context: context to pass to the action function, available in this.context in your handler
    * - leaveOpen: if set to true, the menu should stay open after the action, defaults to false
    * @example
-   * <pre>  $scope.gridOptions.columnDefs = [ 
+   * <pre>  $scope.gridOptions.columnDefs = [
    *   { field: 'field1', menuItems: [
    *     {
    *       title: 'Outer Scope Alert',
@@ -391,7 +391,7 @@ angular.module('ui.grid')
    *     }
    *   ] }]; </pre>
    *
-   */   
+   */
 
   /**
    * @ngdoc method
@@ -403,7 +403,7 @@ angular.module('ui.grid')
    * @param {boolean} isNew whether the column is being newly created, if not
    * we're updating an existing column, and some items such as the sort shouldn't
    * be copied down
-   */ 
+   */
   GridColumn.prototype.updateColumnDef = function(colDef, isNew) {
     var self = this;
 
@@ -414,7 +414,7 @@ angular.module('ui.grid')
     }
 
     self.displayName = (colDef.displayName === undefined) ? gridUtil.readableColumnName(colDef.name) : colDef.displayName;
-    
+
     var parseErrorMsg = "Cannot parse column width '" + colDef.width + "' for column named '" + colDef.name + "'";
 
     // If width is not defined, set it to a single star
@@ -460,11 +460,11 @@ angular.module('ui.grid')
 
     //use field if it is defined; name if it is not
     self.field = (colDef.field === undefined) ? colDef.name : colDef.field;
-    
+
     if ( typeof( self.field ) !== 'string' ){
       gridUtil.logError( 'Field is not a string, this is likely to break the code, Field is: ' + self.field );
     }
-    
+
     self.name = colDef.name;
 
     // Use colDef.displayName as long as it's not undefined, otherwise default to the field name
@@ -483,7 +483,7 @@ angular.module('ui.grid')
      * If set to false, no tooltip.  If true, the cell value is shown in the tooltip (useful
      * if you have long values in your cells), if a function then that function is called
      * passing in the row and the col `cellTooltip( row, col )`, and the return value is shown in the tooltip.
-     * 
+     *
      * Defaults to false
      *
      */
@@ -541,6 +541,14 @@ angular.module('ui.grid')
 
     /**
      * @ngdoc property
+     * @name mask
+     * @propertyOf ui.grid.class:GridOptions.columnDef
+     * @description mask define a máscara a ser utilizada no campo no momento da edição
+     */
+    self.mask = (colDef.mask) ? colDef.mask : '';
+    console.log('self.mask: '+self.mask);
+    /**
+     * @ngdoc property
      * @name headerCellFilter
      * @propertyOf ui.grid.class:GridOptions.columnDef
      * @description headerCellFilter is a filter to apply to the content of the column header
@@ -582,7 +590,7 @@ angular.module('ui.grid')
     if ( typeof(self.suppressRemoveSort) === 'undefined'){
       self.suppressRemoveSort = typeof(colDef.suppressRemoveSort) !== 'undefined' ? colDef.suppressRemoveSort : false;
     }
-    
+
     /**
      * @ngdoc property
      * @name enableFiltering
@@ -607,13 +615,13 @@ angular.module('ui.grid')
 
     // Set up default filters array for when one is not provided.
     //   In other words, this (in column def):
-    //   
+    //
     //       filter: { term: 'something', flags: {}, condition: [CONDITION] }
-    //       
+    //
     //   is just shorthand for this:
-    //   
+    //
     //       filters: [{ term: 'something', flags: {}, condition: [CONDITION] }]
-    //       
+    //
     var defaultFilters = [];
     if (colDef.filter) {
       defaultFilters.push(colDef.filter);
@@ -627,14 +635,14 @@ angular.module('ui.grid')
       defaultFilters.push({});
     }
 
-    /** 
+    /**
      * @ngdoc property
      * @name filter
      * @propertyOf ui.grid.class:GridOptions.columnDef
      * @description Specify a single filter field on this column.
-     * 
+     *
      * A filter consists of a condition, a term, and a placeholder:
-     * 
+     *
      * - condition defines how rows are chosen as matching the filter term. This can be set to
      * one of the constants in uiGridConstants.filter, or you can supply a custom filter function
      * that gets passed the following arguments: [searchTerm, cellValue, row, column].
@@ -650,7 +658,7 @@ angular.module('ui.grid')
      * - selectOptions: options in the format `[ { value: 1, label: 'male' }]`.  No i18n filter is provided, you need
      * to perform the i18n on the values before you provide them
      * @example
-     * <pre>$scope.gridOptions.columnDefs = [ 
+     * <pre>$scope.gridOptions.columnDefs = [
      *   {
      *     field: 'field1',
      *     filter: {
@@ -665,7 +673,7 @@ angular.module('ui.grid')
      * ]; </pre>
      *
      */
-  
+
     /*
 
       self.filters = [
@@ -712,7 +720,7 @@ angular.module('ui.grid')
       this.sort = {};
       self.grid.api.core.raise.sortChanged( self, self.grid.getColumnSorting() );
     };
-  
+
   };
 
 
@@ -791,7 +799,7 @@ angular.module('ui.grid')
   };
 
 
-  /** 
+  /**
    * @ngdoc property
    * @name aggregationHideLabel
    * @propertyOf ui.grid.class:GridOptions.columnDef
@@ -808,7 +816,7 @@ angular.module('ui.grid')
    * based on colDef.aggregationHideLabel.
    *
    * @param {string} label the i18n lookup value to use for the column label
-   * 
+   *
    */
   GridColumn.prototype.getAggregationText = function () {
     var self = this;

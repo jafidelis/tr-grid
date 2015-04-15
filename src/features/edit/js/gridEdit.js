@@ -650,14 +650,24 @@
                 case 'boolean':
                   inputType = 'checkbox';
                   break;
-                case 'number':
-                  inputType = 'number';
-                  break;
+                // case 'number':
+                //   inputType = 'number';
+                //   break;
                 case 'date':
                   inputType = 'date';
                   break;
               }
+
               html = html.replace('INPUT_TYPE', inputType);
+
+              var mask = '';
+             switch($scope.col.colDef.mask){
+               case 'tr-decimal':
+                 mask = 'tr-decimal';
+               break;
+             }
+
+             html = html.replace('INPUT_MASK', mask);
 
               var editDropdownRowEntityOptionsArrayPath = $scope.col.colDef.editDropdownRowEntityOptionsArrayPath;
               if (editDropdownRowEntityOptionsArrayPath) {

@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var module = angular.module('ui.grid.cellNav', ['ui.grid']);
+  var module = angular.module('ui.grid.cellNav', ['ui.grid', 'ui.grid.selection']);
 
   function RowCol(row, col) {
     this.row = row;
@@ -664,9 +664,11 @@
               var lastRowCol = uiGridCtrl.grid.api.cellNav.getFocusedCell();
 
                //INÍCIO DO BLOCO DE SELEÇÃO DE LINHA PELO TECLADO
-               if(evt.keyCode == uiGridConstants.keymap.SPACE && !lastRowCol.col.colDef.enableCellEdit){
-                 uiGridSelectionService.toggleRowSelection(grid, lastRowCol.row, evt, self.options.multiSelect, self.options.noUnselect);
-                 if($scope.$$phase){
+               if (evt.keyCode == uiGridConstants.keymap.SPACE &&
+                 !lastRowCol.col.colDef.enableCellEdit &&
+                 grid.options.enableRowSelection) {
+                 uiGridSelectionService.toggleRowSelection(grid, lastRowCol.row, evt, grid.options.multiSelect, grid.options.noUnselect);
+                 if (!$scope.$$phase) {
                    $scope.$apply();
                  }
 
