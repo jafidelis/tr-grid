@@ -661,11 +661,11 @@
               html = html.replace('INPUT_TYPE', inputType);
 
               var mask = '';
-             switch($scope.col.colDef.mask){
-               case 'tr-decimal':
-                 mask = 'tr-decimal';
-               break;
-             }
+              switch ($scope.col.colDef.mask) {
+                  case 'tr-decimal':
+                  mask = 'tr-decimal';
+                  break;
+              }
 
              html = html.replace('INPUT_MASK', mask);
 
