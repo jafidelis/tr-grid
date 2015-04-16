@@ -28,7 +28,7 @@
           if (grid.options.rowTemplate) {
             var rowTemplateFnPromise = $q.defer();
             grid.getRowTemplateFn = rowTemplateFnPromise.promise;
-            
+
             gridUtil.getTemplate(grid.options.rowTemplate)
               .then(
                 function (template) {
@@ -124,11 +124,16 @@
            * must contain a div that can receive focus.
            *
            */
-          if (!colDef.cellTemplate) {
-            col.providedCellTemplate = 'ui-grid/uiGridCell';
-          } else {
-            col.providedCellTemplate = colDef.cellTemplate;
-          }
+           if (!colDef.cellTemplate) {
+             col.providedCellTemplate = 'ui-grid/uiGridCell';
+             
+             if (col.mask == 'tr-decimal') {
+               col.providedCellTemplate = 'ui-grid/uiGridCellDecimal';
+             }
+
+           } else {
+             col.providedCellTemplate = colDef.cellTemplate;
+           }
 
           /**
            * @ngdoc property
@@ -203,7 +208,7 @@
               .then(function (template) {
                 // Compile the template
                 var rowTemplateFn = $compile(template);
-                
+
                 // Resolve the compiled template function promise
                 perRowTemplateFnPromise.resolve(rowTemplateFn);
               },

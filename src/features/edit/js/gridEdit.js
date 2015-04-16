@@ -665,6 +665,9 @@
                case 'tr-decimal':
                  mask = 'tr-decimal';
                break;
+               case 'tr-integer':
+                 mask = 'tr-integer';
+               break;
              }
 
              html = html.replace('INPUT_MASK', mask);
