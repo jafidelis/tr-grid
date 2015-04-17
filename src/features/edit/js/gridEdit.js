@@ -646,14 +646,14 @@
               html = html.replace(uiGridConstants.CUSTOM_FILTERS, optionFilter);
 
               var inputType = 'text';
-              switch ($scope.col.colDef.type){
-                case 'boolean':
+              switch ($scope.col.colDef.type) {
+                  case 'boolean':
                   inputType = 'checkbox';
                   break;
-                // case 'number':
-                //   inputType = 'number';
-                //   break;
-                case 'date':
+                  // case 'number':
+                  //   inputType = 'number';
+                  //   break;
+                  case 'date':
                   inputType = 'date';
                   break;
               }
@@ -661,16 +661,16 @@
               html = html.replace('INPUT_TYPE', inputType);
 
               var mask = '';
-             switch($scope.col.colDef.mask){
-               case 'tr-decimal':
-                 mask = 'tr-decimal';
-               break;
-               case 'tr-integer':
-                 mask = 'tr-integer';
-               break;
-             }
+              switch ($scope.col.colDef.mask) {
+                  case 'tr-decimal':
+                  mask = 'tr-decimal';
+                  break;
+                  case 'tr-integer':
+                  mask = 'tr-integer';
+                  break;
+              }
 
-             html = html.replace('INPUT_MASK', mask);
+              html = html.replace('INPUT_MASK', mask);
 
               var editDropdownRowEntityOptionsArrayPath = $scope.col.colDef.editDropdownRowEntityOptionsArrayPath;
               if (editDropdownRowEntityOptionsArrayPath) {

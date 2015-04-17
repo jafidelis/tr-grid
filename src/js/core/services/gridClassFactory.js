@@ -125,14 +125,14 @@
            *
            */
            if (!colDef.cellTemplate) {
-             col.providedCellTemplate = 'ui-grid/uiGridCell';
-             
-             if (col.mask == 'tr-decimal') {
-               col.providedCellTemplate = 'ui-grid/uiGridCellDecimal';
-             }
+               col.providedCellTemplate = 'ui-grid/uiGridCell';
+
+               if (col.mask === 'tr-decimal') {
+                   col.providedCellTemplate = 'ui-grid/uiGridCellDecimal';
+               }
 
            } else {
-             col.providedCellTemplate = colDef.cellTemplate;
+               col.providedCellTemplate = colDef.cellTemplate;
            }
 
           /**
