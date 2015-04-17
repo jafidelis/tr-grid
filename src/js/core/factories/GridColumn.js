@@ -546,7 +546,7 @@ angular.module('ui.grid')
      * @description mask define a máscara a ser utilizada no campo no momento da edição
      */
     self.mask = (colDef.mask) ? colDef.mask : '';
-    console.log('self.mask: '+self.mask);
+    
     /**
      * @ngdoc property
      * @name headerCellFilter

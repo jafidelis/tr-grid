@@ -843,7 +843,8 @@
                       $scope.$emit(uiGridEditConstants.events.CANCEL_CELL_EDIT);
                       break;
                     case uiGridConstants.keymap.ENTER: // Enter (Leave Field)
-                      $scope.stopEdit(evt);
+                        $elm[0].blur();
+                        evt.preventDefault();
                       break;
                     case uiGridConstants.keymap.TAB:
                       $scope.stopEdit(evt);
