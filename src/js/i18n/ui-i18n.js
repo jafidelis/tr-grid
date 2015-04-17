@@ -35,7 +35,7 @@
 
     LOCALE_DIRECTIVE_ALIAS: 'uiI18n',
     // default to english
-    DEFAULT_LANG: 'en'
+    DEFAULT_LANG: 'pt-br'
   });
 
 //    module.config(['$provide', function($provide) {
