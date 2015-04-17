@@ -664,7 +664,7 @@
               var lastRowCol = uiGridCtrl.grid.api.cellNav.getFocusedCell();
 
                //INÍCIO DO BLOCO DE SELEÇÃO DE LINHA PELO TECLADO
-               if (evt.keyCode == uiGridConstants.keymap.SPACE &&
+               if (evt.keyCode === uiGridConstants.keymap.SPACE &&
                  !lastRowCol.col.colDef.enableCellEdit &&
                  grid.options.enableRowSelection) {
                  uiGridSelectionService.toggleRowSelection(grid, lastRowCol.row, evt, grid.options.multiSelect, grid.options.noUnselect);
