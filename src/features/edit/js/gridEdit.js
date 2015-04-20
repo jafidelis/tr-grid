@@ -663,14 +663,14 @@
               var mask = '';
               switch ($scope.col.colDef.mask) {
                   case 'tr-decimal':
-                  mask = 'tr-decimal';
-                  break;
+                    mask = 'tr-decimal';
+                    break;
                   case 'tr-integer':
-                  mask = 'tr-integer';
-                  break;
+                    mask = 'tr-integer';
+                    break;
               }
 
-              html = html.replace('INPUT_MASK', mask);
+              html = html.replace('mask', mask);
 
               var editDropdownRowEntityOptionsArrayPath = $scope.col.colDef.editDropdownRowEntityOptionsArrayPath;
               if (editDropdownRowEntityOptionsArrayPath) {
