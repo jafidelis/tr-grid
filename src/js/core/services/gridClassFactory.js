@@ -127,9 +127,9 @@
            if (!colDef.cellTemplate) {
                col.providedCellTemplate = 'ui-grid/uiGridCell';
 
-               if (col.mask === 'tr-decimal') {
-                   col.providedCellTemplate = 'ui-grid/uiGridCellDecimal';
-               }
+            //    if (col.mask === 'tr-decimal') {
+            //        col.providedCellTemplate = 'ui-grid/uiGridCellDecimal';
+            //    }
 
            } else {
                col.providedCellTemplate = colDef.cellTemplate;
@@ -154,6 +154,8 @@
             .then(
               function (template) {
                 col.cellTemplate = template.replace(uiGridConstants.CUSTOM_FILTERS, col.cellFilter ? "|" + col.cellFilter : "");
+                col.cellTemplate = col.cellTemplate.replace(uiGridConstants.MASK_FORMATTER,
+                    col.maskFormatter ? '|' + col.maskFormatter : '');
               },
               function (res) {
                 throw new Error("Couldn't fetch/use colDef.cellTemplate '" + colDef.cellTemplate + "'");

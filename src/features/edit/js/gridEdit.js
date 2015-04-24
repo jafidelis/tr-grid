@@ -660,16 +660,7 @@
 
               html = html.replace('INPUT_TYPE', inputType);
 
-              var mask = '';
-              switch ($scope.col.colDef.mask) {
-                  case 'tr-decimal':
-                    mask = 'tr-decimal';
-                    break;
-                  case 'tr-integer':
-                    mask = 'tr-integer';
-                    break;
-              }
-
+              var mask = $scope.col.colDef.mask ? $scope.col.colDef.mask : '';
               html = html.replace('mask', mask);
 
               var editDropdownRowEntityOptionsArrayPath = $scope.col.colDef.editDropdownRowEntityOptionsArrayPath;

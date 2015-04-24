@@ -543,10 +543,18 @@ angular.module('ui.grid')
      * @ngdoc property
      * @name mask
      * @propertyOf ui.grid.class:GridOptions.columnDef
-     * @description mask define a máscara a ser utilizada no campo no momento da edição
+     * @description mask define mask format in input
      */
     self.mask = (colDef.mask) ? colDef.mask : '';
-    
+
+    /**
+     * @ngdoc property
+     * @name maskFormatter
+     * @propertyOf ui.grid.class:GridOptions.columnDef
+     * @description maskFormatter define filter format in output text
+     */
+    self.maskFormatter = (colDef.maskFormatter) ? colDef.maskFormatter : '';
+
     /**
      * @ngdoc property
      * @name headerCellFilter
