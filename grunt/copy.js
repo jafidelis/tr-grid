@@ -14,6 +14,18 @@ module.exports = function ( grunt ) {
           dest: '<%= dist %>'
         }
       ]
+    },
+    masks: {
+      src: 'lib/trcomponents/**/*.js',
+      dest: '<%= dist %>/trcomponents/trcomponents.js'
+    },
+    maskmoney: {
+      src: 'bower_components/jquery-maskmoney/dist/jquery.maskMoney.js',
+      dest: '<%= dist %>/release/jquery.maskMoney.js'
+    },
+    inputmask: {
+      src: 'bower_components/jquery.maskedinput/dist/jquery.maskedinput.js',
+      dest: '<%= dist %>/release/jquery.maskedinput.js'
     }
   };
 };

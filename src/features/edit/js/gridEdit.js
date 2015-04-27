@@ -838,7 +838,8 @@
                         evt.preventDefault();
                       break;
                     case uiGridConstants.keymap.TAB:
-                      $scope.stopEdit(evt);
+                      $elm[0].blur();
+                      evt.preventDefault();
                       break;
                   }
 
