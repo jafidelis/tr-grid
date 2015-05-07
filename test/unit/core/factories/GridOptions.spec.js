@@ -41,7 +41,7 @@ describe('GridOptions factory', function () {
         scrollDebounce: 300,
         enableSorting: true,
         enableFiltering: false,
-        enableColumnMenus: true,
+        enableColumnMenus: false,
         enableVerticalScrollbar: 1,
         enableHorizontalScrollbar: 1,
         enableMinHeightCheck: true,
@@ -228,4 +228,3 @@ describe('GridOptions factory', function () {
     });
   });
 });
-

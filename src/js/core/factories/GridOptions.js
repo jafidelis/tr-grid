@@ -467,6 +467,14 @@ angular.module('ui.grid')
        */
       baseOptions.appScopeProvider = baseOptions.appScopeProvider || null;
 
+      /**
+       * @ngdoc object
+       * @name gridHeight
+       * @propertyOf ui.grid.class:GridOptions
+       * @description defines the grid height
+       */
+      baseOptions.gridHeight = typeof(baseOptions.gridHeight) !== "undefined" ? baseOptions.gridHeight : 0;
+
       return baseOptions;
     }
   };

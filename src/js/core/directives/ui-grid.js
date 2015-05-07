@@ -62,7 +62,7 @@
       function dataWatchFunction(newData) {
         // gridUtil.logDebug('dataWatch fired');
         var promises = [];
-        
+
         if (newData) {
           if (
             // If we have no columns (i.e. columns length is either 0 or equal to the number of row header columns, which don't count because they're created automatically)
@@ -202,6 +202,10 @@ angular.module('ui.grid').directive('uiGrid',
               // Default canvasWidth to the grid width, in case we don't get any column definitions to calculate it from
               grid.canvasWidth = uiGridCtrl.grid.gridWidth;
 
+              if (grid.options.gridHeight > 0) {
+                  $elm.css('height', grid.options.gridHeight + 'px');
+              }
+
               grid.gridHeight = $scope.gridHeight = gridUtil.elementHeight($elm);
 
               // If the grid isn't tall enough to fit a single row, it's kind of useless. Resize it to fit a minimum number of rows
@@ -210,7 +214,7 @@ angular.module('ui.grid').directive('uiGrid',
                 var contentHeight = grid.options.minRowsToShow * grid.options.rowHeight;
                 var headerHeight = grid.options.showHeader ? grid.options.headerRowHeight : 0;
                 var footerHeight = grid.calcFooterHeight();
-                
+
                 var scrollbarHeight = 0;
                 if (grid.options.enableHorizontalScrollbar === uiGridConstants.scrollbars.ALWAYS) {
                   scrollbarHeight = gridUtil.getScrollbarWidth();
